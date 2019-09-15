@@ -21,7 +21,15 @@ export default {
 </script>
 
 <style scoped>
+  #Form {
+    position: absolute;
+    z-index: 10;
+    margin-top: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
   input {
-    border-radius: 10px
+    border-radius: 10px;
   }
 </style>

@@ -9,8 +9,9 @@ export const getSearch = async (searchType) => {
       'Authorization': `Client-ID ${accessKey}`,
   },
   }
+
   return await fetch(`https://api.unsplash.com/search/photos?query=${searchType}`, method)
     .then(res => res.json())
-    .then(data => console.log(data))
-
+    .then(data => data)
+    .catch(error => error)
 }

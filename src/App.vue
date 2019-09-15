@@ -4,20 +4,24 @@
       v-bind:searchType="searchType" v-bind:changeSearch="changeSearch"
       v-bind:callSearch="callSearch"
     />
+    <imageContainer/>
   </div>
 </template>
 
 <script>
-import Form from './components/Form'
-import {getSearch} from './assets/APICalls'
+import Form from './components/Form';
+import {getSearch} from './assets/APICalls';
+import imageContainer from './components/imageContainer'
 export default {
   name: 'App',
   components: {
-    Form
+    Form,
+    imageContainer
   },
   data() {
     return{
-      searchType: ''
+      searchType: '',
+      searchResults: {}
     }
   },
   methods: {
@@ -25,23 +29,24 @@ export default {
       this.searchType=e.target.value
       console.log('searchType', this.searchType)
     },
-    callSearch(e) {
-      e.preventDefault()
-      getSearch(this.searchType)
+    async callSearch() {
+      this.searchResults = await getSearch(this.searchType)
+      console.log(this.searchResults)
       this.searchType=''
-      console.log('callSearch', this.searchType)
     }
   }
 }
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 #App {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100vh;
+  width: 100vw;
 }
 </style>
