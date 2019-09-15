@@ -26,6 +26,7 @@ export default {
     },
     callSearch(e) {
       e.preventDefault()
+      this.searchType=''
       console.log('callSearch', this.searchType)
     }
   }

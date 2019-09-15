@@ -5,6 +5,7 @@
         type="text" 
         placeholder="Search for images"
         v-on:change="changeSearch"  
+        :value="searchType"
       >
       <input type="submit" value="Search">
     </form>
