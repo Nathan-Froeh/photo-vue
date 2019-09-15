@@ -12,6 +12,6 @@ export const getSearch = async (searchType) => {
 
   return await fetch(`https://api.unsplash.com/search/photos?query=${searchType}`, method)
     .then(res => res.json())
-    .then(data => data)
+    .then(data => data.results)
     .catch(error => error)
 }

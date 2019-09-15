@@ -4,7 +4,7 @@
       v-bind:searchType="searchType" v-bind:changeSearch="changeSearch"
       v-bind:callSearch="callSearch"
     />
-    <imageContainer/>
+    <imageContainer v-bind:images='this.searchResults'/>
   </div>
 </template>
 
@@ -21,13 +21,12 @@ export default {
   data() {
     return{
       searchType: '',
-      searchResults: {}
+      searchResults: []
     }
   },
   methods: {
     changeSearch(e) {
       this.searchType=e.target.value
-      console.log('searchType', this.searchType)
     },
     async callSearch() {
       this.searchResults = await getSearch(this.searchType)
