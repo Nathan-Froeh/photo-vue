@@ -9,6 +9,7 @@
 
 <script>
 import Form from './components/Form'
+import {getSearch} from './assets/APICalls'
 export default {
   name: 'App',
   components: {
@@ -28,6 +29,7 @@ export default {
       e.preventDefault()
       this.searchType=''
       console.log('callSearch', this.searchType)
+      getSearch()
     }
   }
 }
