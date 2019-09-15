@@ -1,14 +1,16 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Form></Form>
+  <div id="App">
+    <Form 
+      v-bind:searchType="searchType" v-bind:changeSearch="changeSearch"
+      v-bind:callSearch="callSearch"
+    />
   </div>
 </template>
 
 <script>
 import Form from './components/Form'
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     Form
   },
@@ -16,12 +18,22 @@ export default {
     return{
       searchType: ''
     }
+  },
+  methods: {
+    changeSearch(e) {
+      this.searchType=e.target.value
+      console.log('searchType', this.searchType)
+    },
+    callSearch(e) {
+      e.preventDefault()
+      console.log('callSearch', this.searchType)
+    }
   }
 }
 </script>
 
 <style>
-#app {
+#App {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

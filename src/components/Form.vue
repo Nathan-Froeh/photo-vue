@@ -1,7 +1,11 @@
 <template>
   <div id="Form">
-    <form action="">
-      <input type="text" placeholder="Search for images">
+    <form v-on:submit.prevent v-on:submit="callSearch" >
+      <input 
+        type="text" 
+        placeholder="Search for images"
+        v-on:change="changeSearch"  
+      >
       <input type="submit" value="Search">
     </form>
 
@@ -10,7 +14,8 @@
 
 <script>
 export default {
-  name: 'Form'
+  name: 'Form',
+  props: ["searchType", "changeSearch", "callSearch"],
 }
 </script>
 
