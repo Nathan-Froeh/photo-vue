@@ -1,5 +1,5 @@
 <template>
-  <div id='Picture' v-bind:style="{backgroundImage: `url(${background})`}">
+  <div class='Picture' v-bind:style="{backgroundImage: `url(${background})`}">
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style scoped>
-  #Picture {
+  .Picture {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
