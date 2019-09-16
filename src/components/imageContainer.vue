@@ -1,5 +1,4 @@
 <template>
-  <!-- <div id="imageContainer"> -->
     <carousel 
       id="imageContainer" 
       :per-page="1" 
@@ -20,25 +19,18 @@
       v-bind:key='index' 
       v-for='(image, index) in images'
       class='slide'>
-    <!-- <Picture 
-      v-bind:key='index' 
-      v-bind:image='image'
-    /> -->
     <div class='Picture' v-bind:style="{backgroundImage: `url(${image.urls.full})`}">
   </div>
     </slide>
   </carousel>
-  <!-- </div> -->
 </template>
 
 <script>
-// import Picture from './Picture';
 import { Carousel, Slide } from 'vue-carousel';
 export default {
   name: 'imageContainer',
   props: ['images'],
   components: {
-    // Picture,
     Carousel,
     Slide
   }
