@@ -47,5 +47,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   height: 100vh;
   width: 100vw;
+  background: red;
 }
 </style>
