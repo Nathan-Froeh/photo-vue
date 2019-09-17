@@ -28,12 +28,11 @@ export default {
   #Form {
     position: absolute;
     z-index: 10;
-    height: 100vh;
+    height: 10vh;
     width: 100vw;
   }
   form {
     margin-top: 5%;
-    height: 10%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -57,7 +56,6 @@ export default {
   color: black;
 }
 .credit {
-  height: 5%;
   display: flex;
   margin: 10px;
 }
