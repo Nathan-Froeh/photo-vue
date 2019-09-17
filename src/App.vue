@@ -3,6 +3,7 @@
     id="App" 
     v-bind:style="{backgroundImage: `url(https://images.unsplash.com/photo-1466854076813-4aa9ac0fc347?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjkxNTQxfQ)`}"
   >
+    <button v-on:click="nextPage">Next image set</button>
     <Form 
       v-bind:searchType="searchType" v-bind:changeSearch="changeSearch"
       v-bind:callSearch="callSearch"
@@ -24,7 +25,9 @@ export default {
   data() {
     return{
       searchType: '',
-      searchResults: []
+      lastSearch: '',
+      searchResults: [],
+      pageNum: 1
     }
   },
   methods: {
@@ -34,7 +37,13 @@ export default {
     async callSearch() {
       this.searchResults = await getSearch(this.searchType)
       console.log(this.searchResults)
+      this.lastSearch = this.searchType
       this.searchType=''
+    },
+    async nextPage() {
+      console.log('next page')
+      this.pageNum++
+      this.searchResults = await getSearch(this.lastSearch, this.pageNum)
     }
   }
 }
