@@ -68,5 +68,12 @@ export default {
   z-index: 11;
   right: 0;
   margin: 10px;
+  border-radius: 15px;
+  height: 35px;
+  width: 150px;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, .3);
+  margin: 10px;
+  border: solid #D8D8D8 1px;
 }
 </style>

@@ -54,17 +54,17 @@ export default {
   }
   ::-webkit-input-placeholder { 
   color: black;
-}
-.credit {
-  display: flex;
-  margin: 10px;
-}
-.powered {
-  font-size: 15px;
-  margin-right: 8px;
-}
-.logo {
-  height: 20px;
-  width: auto;
-}
+  }
+  .credit {
+    display: flex;
+    margin: 10px;
+  }
+  .powered {
+    font-size: 15px;
+    margin-right: 8px;
+  }
+  .logo {
+    height: 20px;
+    width: auto;
+  }
 </style>
