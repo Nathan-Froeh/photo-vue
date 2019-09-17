@@ -1,28 +1,52 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="App">
+    <Form 
+      v-bind:searchType="searchType" v-bind:changeSearch="changeSearch"
+      v-bind:callSearch="callSearch"
+    />
+    <imageContainer v-bind:images='this.searchResults'/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Form from './components/Form';
+import {getSearch} from './assets/APICalls';
+import imageContainer from './components/imageContainer'
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    HelloWorld
+    Form,
+    imageContainer
+  },
+  data() {
+    return{
+      searchType: '',
+      searchResults: []
+    }
+  },
+  methods: {
+    changeSearch(e) {
+      this.searchType=e.target.value
+    },
+    async callSearch() {
+      this.searchResults = await getSearch(this.searchType)
+      console.log(this.searchResults)
+      this.searchType=''
+    }
   }
 }
 </script>
 
 <style>
-#app {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#App {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100vh;
+  width: 100vw;
+  background: red;
 }
 </style>
