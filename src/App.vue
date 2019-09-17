@@ -1,5 +1,8 @@
 <template>
-  <div id="App">
+  <div 
+    id="App" 
+    v-bind:style="{backgroundImage: `url(https://images.unsplash.com/photo-1466854076813-4aa9ac0fc347?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjkxNTQxfQ)`}"
+  >
     <Form 
       v-bind:searchType="searchType" v-bind:changeSearch="changeSearch"
       v-bind:callSearch="callSearch"
@@ -47,6 +50,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   height: 100vh;
   width: 100vw;
-  background: red;
+  background-size: cover;
 }
 </style>
