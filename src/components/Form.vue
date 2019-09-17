@@ -1,5 +1,9 @@
 <template>
   <div id="Form">
+    <div class='credit'>
+      <p class='powered'>Powered by</p>
+      <img src='../assets/unsplash_logo.png' alt='unsplash logo' class='logo'/>
+    </div>
     <form v-on:submit.prevent v-on:submit="callSearch" >
       <input 
         type="text" 
@@ -10,7 +14,6 @@
       >
       <input type="submit" value="Search" class='submit-button'>
     </form>
-
   </div>
 </template>
 
@@ -25,7 +28,12 @@ export default {
   #Form {
     position: absolute;
     z-index: 10;
+    height: 100vh;
+    width: 100vw;
+  }
+  form {
     margin-top: 5%;
+    height: 10%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -36,7 +44,6 @@ export default {
     font-size: 18px;
     background-color: rgba(255, 255, 255, .3);
     margin: 10px;
-    /* box-shadow: inset 3px 3px 3px 3px rgba(0, 0, 0, .4); */
     border: solid #D8D8D8 1px;
   }
   .search-box {
@@ -48,5 +55,18 @@ export default {
   }
   ::-webkit-input-placeholder { 
   color: black;
+}
+.credit {
+  height: 5%;
+  display: flex;
+  margin: 10px;
+}
+.powered {
+  font-size: 15px;
+  margin-right: 8px;
+}
+.logo {
+  height: 20px;
+  width: auto;
 }
 </style>
