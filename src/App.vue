@@ -3,7 +3,10 @@
     id="App" 
     v-bind:style="{backgroundImage: `url(https://images.unsplash.com/photo-1466854076813-4aa9ac0fc347?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjkxNTQxfQ)`}"
   >
-    <button v-on:click="nextPage">Next image set</button>
+    <button 
+      v-on:click="nextPage"
+      class="next"
+    >Next image set</button>
     <Form 
       v-bind:searchType="searchType" v-bind:changeSearch="changeSearch"
       v-bind:callSearch="callSearch"
@@ -41,7 +44,6 @@ export default {
       this.searchType=''
     },
     async nextPage() {
-      console.log('next page')
       this.pageNum++
       this.searchResults = await getSearch(this.lastSearch, this.pageNum)
     }
@@ -60,5 +62,11 @@ export default {
   height: 100vh;
   width: 100vw;
   background-size: cover;
+}
+.next {
+  position: absolute;
+  z-index: 11;
+  right: 0;
+  margin: 10px;
 }
 </style>
